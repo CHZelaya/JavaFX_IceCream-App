@@ -1,16 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.javafx_icecreamapp.IceCreamShopController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafx_icecreamapp.IceCreamShopController">
+   <children>
+      <HBox layoutY="111.0" prefHeight="273.0" prefWidth="604.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1 0.5 1 1; -fx-border-style: solid;">
+               <children>
+                  <Pane prefHeight="30.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-style: solid;">
+                     <children>
+                        <Label layoutX="64.0" layoutY="5.0" text="Scoops" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox id="vBoxScoopChoice" fx:id="vBoxScoopChoice" alignment="CENTER" layoutY="30.0" prefHeight="243.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="radioBtnKids" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="59.0" prefWidth="91.0" text="Kids">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <Label alignment="TOP_LEFT" text="\$3.50" textFill="#737070" />
+                           </graphic>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="scoopGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioBtnSingle" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="60.0" prefWidth="94.0" selected="true" text="Single" toggleGroup="$scoopGroup">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <Label text="\$5.50" textFill="#737070" />
+                           </graphic>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="radioBtnDouble" contentDisplay="BOTTOM" mnemonicParsing="false" text="Double" toggleGroup="$scoopGroup">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <Label text="\$7.50" textFill="#737070" />
+                           </graphic>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="radioBtnTriple" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="60.0" prefWidth="95.0" text="Triple" toggleGroup="$scoopGroup">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <Label text="\$9.50" textFill="#737070" />
+                           </graphic>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1 0.5 1 0.5; -fx-border-style: solid;">
+               <children>
+                  <VBox fx:id="vboxFlavorChoiceA" alignment="TOP_CENTER" layoutX="14.0" layoutY="29.0" prefHeight="243.0" prefWidth="91.0">
+                     <children>
+                        <CheckBox fx:id="checkBoxChocolate" mnemonicParsing="false" prefHeight="36.0" prefWidth="91.0" selected="true" text="Chocolate">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxVanilla" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" text="Vanilla">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxStrawberry" mnemonicParsing="false" text="Strawberry">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxEspresso" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Espresso">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vboxFlavorChoiceB" alignment="TOP_CENTER" layoutX="111.0" layoutY="29.0" prefHeight="243.0" prefWidth="89.0">
+                     <children>
+                        <CheckBox fx:id="checkBoxMatcha" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Matcha">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxCaramel" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Caramel">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxPistachio" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Pistachio">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxMint" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Mint">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="30.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-style: solid;">
+                     <children>
+                        <Label layoutX="64.0" layoutY="5.0" text="Flavors" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1 1 1 0.5; -fx-border-style: solid;">
+               <children>
+                  <Pane prefHeight="30.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-style: solid;">
+                     <children>
+                        <Label layoutX="64.0" layoutY="5.0" text="Extras" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <HBox fx:id="hBoxExtras" alignment="TOP_CENTER" layoutY="30.0" prefHeight="58.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="checkBoxWaffle" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="78.0" prefWidth="175.0" text="Waffle Bowl/Cone">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <graphic>
+                              <Label contentDisplay="BOTTOM" text="\$1.50" textFill="#737070" />
+                           </graphic>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="vboxExtrasChoiceA" alignment="TOP_CENTER" layoutX="14.0" layoutY="101.0" prefHeight="162.0" prefWidth="89.0">
+                     <children>
+                        <CheckBox fx:id="checkBoxSprinkles" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Sprinkles">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <graphic>
+                              <Label text="\$0.50" textFill="#737070" />
+                           </graphic>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxFruit" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Fruit">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="\$0.50" textFill="#737070" />
+                           </graphic>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vboxExtrasChoiceB" alignment="TOP_CENTER" layoutX="103.0" layoutY="101.0" prefHeight="162.0" prefWidth="89.0">
+                     <children>
+                        <CheckBox fx:id="checkBoxNuts" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Nuts">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <graphic>
+                              <Label text="\$0.50" textFill="#737070" />
+                           </graphic>
+                        </CheckBox>
+                        <CheckBox fx:id="checkBoxCandy" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Candy">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="15.0" top="25.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="\$0.50" textFill="#737070" />
+                           </graphic>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <ImageView fitHeight="607.0" fitWidth="298.0" layoutX="602.0" layoutY="-4.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/icecream-cone.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutY="-1.0" prefHeight="112.0" prefWidth="604.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="26.0" layoutY="7.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text="Ice Cream Shop Name">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox layoutX="402.0" layoutY="385.0" prefHeight="215.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnAdd" layoutY="2.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Add" />
+                  <Button fx:id="btnCheckOut" layoutX="111.0" layoutY="2.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Checkout" />
+                  <Button fx:id="btnNewOrder" layoutY="176.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="New Order" />
+                  <Button fx:id="btnExit" layoutX="111.0" layoutY="176.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="89.0" text="Exit" />
+                  <TextField fx:id="textFieldTotalPrice" layoutX="26.0" layoutY="95.0" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <HBox layoutX="-1.0" layoutY="384.0" prefHeight="215.0" prefWidth="402.0">
+         <children>
+            <ListView fx:id="listViewOrderSummary" prefHeight="214.0" prefWidth="402.0" />
+         </children>
+      </HBox>
+   </children>
+</Pane>
