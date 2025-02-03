@@ -225,7 +225,7 @@ public class IceCreamShopController implements Prices, Flavors {
         StringBuilder orderString = new StringBuilder();
 
         //Scoop
-        orderString.append("*************************Order Summary*****************************\n\n");
+        orderString.append("***Order Summary***\n\n");
         orderString.append("SELECTED SCOOP: \n");
         if (selectedScoop.equalsIgnoreCase("kids")) {
             orderString.append(selectedScoop).append(" ").append(formattedPriceKids).append("\n");
@@ -298,6 +298,9 @@ public class IceCreamShopController implements Prices, Flavors {
         String formattedTotalWithTax = formatter.format(totalWithTax);
         textFieldTotal.setText(formattedTotal);
         textFieldTotalPrice.setText(formattedTotalWithTax);
+        btnAdd.setDisable(true);
+        btnCheckOut.setDisable(true);
+        total = 0.00;
 
 
     }
@@ -313,6 +316,7 @@ public class IceCreamShopController implements Prices, Flavors {
         total = 0.00;
         resetOrder();
         btnCheckOut.setDisable(true);
+        btnAdd.setDisable(false);
     }
 
     private void resetOrder() {
