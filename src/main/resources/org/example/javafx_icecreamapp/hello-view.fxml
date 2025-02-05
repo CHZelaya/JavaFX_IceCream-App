@@ -168,7 +168,7 @@
                   </HBox>
                   <VBox fx:id="vboxExtrasChoiceA" alignment="TOP_CENTER" layoutX="14.0" layoutY="101.0" prefHeight="162.0" prefWidth="89.0">
                      <children>
-                        <CheckBox fx:id="checkBoxSprinkles" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#checkActiveExtras" prefHeight="58.0" prefWidth="90.0" text="Sprinkles">
+                        <CheckBox fx:id="checkBoxSprinkles" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="58.0" prefWidth="90.0" text="Sprinkles">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="13.0" />
                            </font>
@@ -233,15 +233,6 @@
             <Image url="@images/icecream-cone.jpg" />
          </image>
       </ImageView>
-      <Pane layoutY="-1.0" prefHeight="112.0" prefWidth="604.0" style="-fx-background-color: white;">
-         <children>
-            <Label layoutX="26.0" layoutY="7.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text="Ice Cream Shop Name">
-               <font>
-                  <Font size="56.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <HBox layoutX="402.0" layoutY="385.0" prefHeight="215.0" prefWidth="200.0">
          <children>
             <Pane prefHeight="213.0" prefWidth="200.0">
@@ -250,8 +241,24 @@
                   <Button fx:id="btnCheckOut" disable="true" layoutX="111.0" layoutY="2.0" mnemonicParsing="false" onAction="#onCheckoutButtonClicked" onMouseClicked="#onCheckoutButtonClicked" prefHeight="39.0" prefWidth="89.0" text="Checkout" />
                   <Button fx:id="btnNewOrder" layoutY="172.0" mnemonicParsing="false" onAction="#onNewOrderButtonClicked" onMouseClicked="#onNewOrderButtonClicked" prefHeight="39.0" prefWidth="89.0" text="New Order" />
                   <Button fx:id="btnExit" layoutX="111.0" layoutY="172.0" mnemonicParsing="false" onAction="#onExitButtonClicked" onMouseClicked="#onExitButtonClicked" prefHeight="39.0" prefWidth="89.0" text="Exit" />
-                  <TextField fx:id="textFieldTotalPrice" editable="false" layoutX="26.0" layoutY="115.0" promptText="Grand Total with Tax" />
-                  <TextField fx:id="textFieldTotal" editable="false" layoutX="26.0" layoutY="70.0" promptText="Total" />
+                  <TextField fx:id="textFieldTotalPrice" alignment="CENTER_RIGHT" editable="false" layoutX="50.0" layoutY="128.0" prefWidth="100.0" />
+                  <TextField fx:id="textFieldTotal" alignment="CENTER_RIGHT" editable="false" layoutX="50.0" layoutY="63.0" prefHeight="25.0" prefWidth="100.0" />
+                  <TextField fx:id="textFieldTax" alignment="CENTER_RIGHT" editable="false" layoutX="50.0" layoutY="94.0" prefHeight="25.0" prefWidth="100.0" />
+                  <Label layoutX="54.0" layoutY="68.0" style="-fx-background-color: smoke;" text="Subtotal">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="99.0" style="-fx-background-color: smoke;" text="Tax">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="55.0" layoutY="133.0" style="-fx-background-color: smoke;" text="Total">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
@@ -266,5 +273,10 @@
             </ImageView>
          </children>
       </HBox>
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="40.0" layoutY="14.0" prefHeight="84.0" prefWidth="523.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;" text="The Rebuttal Sundae">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

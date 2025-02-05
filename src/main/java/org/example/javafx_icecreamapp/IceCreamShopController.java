@@ -49,6 +49,9 @@ public class IceCreamShopController implements Prices, Flavors {
     private TextField textFieldTotal;
 
     @FXML
+    private TextField textFieldTax;
+
+    @FXML
     private Button btnCheckOut;
 
     @FXML
@@ -177,26 +180,27 @@ public class IceCreamShopController implements Prices, Flavors {
         scoopBox3.setValue(null);
     }
 
-    @FXML
-    int checkActiveExtras() {
-        int extrasChoice = 0;
-        if (checkBoxCandy.isSelected()) {
-            extrasChoice++;
-        }
-        if (checkBoxFruit.isSelected()) {
-            extrasChoice++;
-        }
-        if (checkBoxNuts.isSelected()) {
-            extrasChoice++;
-        }
-        if (checkBoxSprinkles.isSelected()) {
-            extrasChoice++;
-        }
-        return extrasChoice;
-    }
+//    @FXML
+//    int checkActiveExtras() {
+//        int extrasChoice = 0;
+//        if (checkBoxCandy.isSelected()) {
+//            extrasChoice++;
+//        }
+//        if (checkBoxFruit.isSelected()) {
+//            extrasChoice++;
+//        }
+//        if (checkBoxNuts.isSelected()) {
+//            extrasChoice++;
+//        }
+//        if (checkBoxSprinkles.isSelected()) {
+//            extrasChoice++;
+//        }
+//        return extrasChoice;
+//    }
 
     @FXML
     void onAddButtonClicked(ActionEvent event) {
+        total = 0.00;
         String orderString = "";
         orderString = buildListViewString();
         listViewOrderSummary.getItems().clear();
@@ -225,7 +229,7 @@ public class IceCreamShopController implements Prices, Flavors {
         StringBuilder orderString = new StringBuilder();
 
         //Scoop
-        orderString.append("***Order Summary***\n\n");
+        orderString.append("*****Order Summary*****\n\n");
         orderString.append("SELECTED SCOOP: \n");
         if (selectedScoop.equalsIgnoreCase("kids")) {
             orderString.append(selectedScoop).append(" ").append(formattedPriceKids).append("\n");
@@ -295,8 +299,10 @@ public class IceCreamShopController implements Prices, Flavors {
         double totalWithTax = total + totalTax;
         NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.CANADA);
         String formattedTotal = formatter.format(total);
+        String formattedTax = formatter.format(totalTax);
         String formattedTotalWithTax = formatter.format(totalWithTax);
         textFieldTotal.setText(formattedTotal);
+        textFieldTax.setText(formattedTax);
         textFieldTotalPrice.setText(formattedTotalWithTax);
         btnAdd.setDisable(true);
         btnCheckOut.setDisable(true);
@@ -326,9 +332,7 @@ public class IceCreamShopController implements Prices, Flavors {
         //clear textview TotalPrice
         textFieldTotalPrice.clear();
         textFieldTotal.clear();
-        //Set prompt text
-        textFieldTotalPrice.setPromptText("Total Price after Tax");
-        textFieldTotal.setPromptText("Total Price");
+        textFieldTax.clear();
 
         //uncheck all extras
         checkBoxCandy.setSelected(false);

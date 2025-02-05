@@ -11,6 +11,4 @@ public interface Prices {
     static final double NUTS = 0.50;
     static final double FRUIT = 0.50;
     static final double CANDY = 0.50;
-    static final double EXTRAS = 0.50;
-
 }
